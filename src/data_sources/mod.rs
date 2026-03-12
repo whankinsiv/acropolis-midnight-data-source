@@ -2,6 +2,7 @@ use sidechain_domain::McBlockHash;
 
 pub mod candidates_data_source;
 pub mod cnight_observation_data_source;
+pub mod federated_authority_data_source;
 pub mod mc_hash_data_source;
 pub mod sidechain_rpc_data_source;
 

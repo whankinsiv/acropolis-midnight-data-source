@@ -5,16 +5,18 @@ use sidechain_domain::{
 use tonic::transport::{Channel, Endpoint};
 
 use crate::{
-    data_sources::cnight_observation_data_source::AcropolisCNightObservationDataSourceError, grpc::requests::candidates_data_source_acropolis::{
+    data_sources::cnight_observation_data_source::AcropolisCNightObservationDataSourceError,
+    grpc::requests::candidates_data_source_acropolis::{
         get_candidates, get_epoch_nonce, get_permissioned_candidates,
-    }, midnight_state::midnight_state_client::MidnightStateClient
+    },
+    midnight_state::midnight_state_client::MidnightStateClient,
 };
 
-pub struct CandidatesDataSourceGrpcImpl {
+pub struct AuthoritySelectionDataSourceGrpcImpl {
     pub client: MidnightStateClient<Channel>,
 }
 
-impl CandidatesDataSourceGrpcImpl {
+impl AuthoritySelectionDataSourceGrpcImpl {
     pub async fn connect(
         endpoint: impl AsRef<str>,
     ) -> Result<Self, Box<dyn std::error::Error + Send + Sync>> {
@@ -39,8 +41,8 @@ impl CandidatesDataSourceGrpcImpl {
     }
 }
 
-#[async_trait::async_trait]
-impl AuthoritySelectionDataSource for CandidatesDataSourceGrpcImpl {
+#[tonic::async_trait]
+impl AuthoritySelectionDataSource for AuthoritySelectionDataSourceGrpcImpl {
     async fn get_ariadne_parameters(
         &self,
         epoch: McEpochNumber,

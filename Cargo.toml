@@ -11,8 +11,10 @@ serde_json = { version = "1.0.132"}
 tonic = "0.12"
 thiserror = "1.0.60"
 prost = { version = "0.13.5", features = ["derive"] }
+log = "0.4.17"
 
 midnight-primitives-cnight-observation = { git = "https://github.com/midnightntwrk/midnight-node", package = "midnight-primitives-cnight-observation" }
+midnight-primitives-federated-authority-observation = { git = "https://github.com/midnightntwrk/midnight-node", package = "midnight-primitives-federated-authority-observation" }
 midnight-primitives-mainchain-follower = { git = "https://github.com/midnightntwrk/midnight-node", package = "midnight-primitives-mainchain-follower", features = ["std"] }
 authority-selection-inherents = { git = "https://github.com/input-output-hk/partner-chains", tag = "v1.8.1" }
 pallet-sidechain-rpc = { git = "https://github.com/input-output-hk/partner-chains", tag = "v1.8.1" }
@@ -25,3 +27,7 @@ sp-timestamp = { git = "https://github.com/paritytech/polkadot-sdk.git", tag = "
 [build-dependencies]
 tonic-build = "0.12"
 protoc-bin-vendored = "3"
+
+[dev-dependencies]
+tokio = { version = "1.47.0", features = ["full"]}
+tokio-stream = { version = "0.1", features = ["net"] }

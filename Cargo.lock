@@ -19,7 +19,9 @@ dependencies = [
  "async-trait",
  "authority-selection-inherents",
  "cardano-serialization-lib",
+ "log",
  "midnight-primitives-cnight-observation",
+ "midnight-primitives-federated-authority-observation",
  "midnight-primitives-mainchain-follower",
  "pallet-sidechain-rpc",
  "partner-chains-plutus-data",
@@ -32,6 +34,8 @@ dependencies = [
  "sp-core",
  "sp-timestamp",
  "thiserror 1.0.69",
+ "tokio",
+ "tokio-stream",
  "tonic",
  "tonic-build",
 ]
